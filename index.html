@@ -75,6 +75,12 @@
         #result.lose {
             color: #e74c3c;
         }
+
+        #computerChoice {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -87,6 +93,7 @@
             <button onclick="playGame('scissors')">Scissors</button>
         </div>
         <p id="result"></p>
+        <p id="computerChoice"></p>
     </div>
 
     <script>
@@ -95,6 +102,10 @@
             var randomIndex = Math.floor(Math.random() * choices.length);
             var computerChoice = choices[randomIndex];
             var result = document.getElementById("result");
+            var computerChoiceText = document.getElementById("computerChoice");
+
+            // Exibindo a jogada do computador
+            computerChoiceText.textContent = "Computer chose: " + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1);
 
             if (userChoice === computerChoice) {
                 result.textContent = "It's a tie!";
